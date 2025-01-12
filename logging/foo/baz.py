@@ -11,11 +11,13 @@ file_handler.setLevel(logging.INFO)
 
 logger.addHandler(file_handler)
 
-logger.setLevel(logging.WARNING)
+# logger.setLevel(logging.WARNING)
+logger.setLevel("DEBUG")
 
 logger.info(f"in foo.baz, {__name__} is imported")
+logger.propagate = False
 
 
 def baz_print_name():
     msg = f"baz_print_name: {__name__}"
-    logging.info(msg)
+    logger.info(msg)
